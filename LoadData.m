@@ -1,6 +1,4 @@
-function [DB flag] = LoadData(windcode,start_time,end_time,Options)
-% 运行量化接口取数据
-w = windmatlab;
+function [DB flag] = LoadData(w,windcode,start_time,end_time,Options)
 
 % 行情数据
 [w_wsd_data_0,w_wsd_codes_0,w_wsd_fields_0,w_wsd_times_0,w_wsd_errorid_0,w_wsd_reqid_0]= ...
@@ -26,6 +24,7 @@ if w_wsd_errorid_2~=0
     flag=0;
     return;
 end
+
 % 数据拼接
 DB.Code = windcode;
 DB.Info = w_wsd_data_2;%上市日期，概念板块（回测开始日期概念），所属证监会行业名称，所属wind行业名称
@@ -40,7 +39,6 @@ DB.Low = w_wsd_data_0(:,3);%低
 DB.Close = w_wsd_data_0(:,4);%收
 DB.Volume = w_wsd_data_0(:,5);%量
 DB.NK = length(DB.Open);%行情数据量
-
 % 数据清洗
 
 %数据加载成功
