@@ -1,5 +1,7 @@
 基于matlab的事件驱动回测框架
 
+首先安装wind量化接口并注册账号，确认可在matlab中运行后可进行回测。
+
 在Main.m中订阅股票池、指定回测开始结束日期和进行高级配置Options，运行Main.m得到策略回测结果。
 资产相关信息保存在Asset变量里，可调用Summary(Asset,DB,Options)输出资金曲线等。
   Asset为数据结构体，字段包括时间轴Times、yymmdd格式时间轴TimesStr、初始现金InitCash
@@ -32,6 +34,3 @@
 
 20171011 update:
 目前支持多支股票的日线回测。待加入自定义全局变量、数据清洗、手续费、详细回测报告
-
-
-
